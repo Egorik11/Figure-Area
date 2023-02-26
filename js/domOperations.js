@@ -33,7 +33,7 @@ function showResultInDomParalelograma() {
   ).value;
 
   const dlinaVisotyParalelograma = document.querySelector(
-    '#dlinaStoronyParalelograma'
+    '#dlinaVisotyParalelograma'
   ).value;
 
   const ploschadParalelograma = document.querySelector(
