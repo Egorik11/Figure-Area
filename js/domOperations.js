@@ -5,12 +5,7 @@ function showResultInDomKvadrat() {
 
   const ploschadKvadrata = document.querySelector('#ploschadKvadrata');
 
-  if (dlinaStoroniKvadrata < 0) {
-    console.error('Введите положительное число');
-    return;
-  } else {
-    ploschadKvadrata.innerHTML = getSquareArea(dlinaStoroniKvadrata);
-  }
+  checkParams(getSquareArea, ploschadKvadrata, dlinaStoroniKvadrata);
 }
 
 function showResultInDomPriamougolnika() {
@@ -26,15 +21,12 @@ function showResultInDomPriamougolnika() {
     '#ploschadPriamougolnika'
   );
 
-  if (pervayaStoronaPriamougolnika < 0 || drugayaStoronaPriamougolnika < 0) {
-    console.error('Введите положительное число');
-    return;
-  } else {
-    ploschadPriamougolnika.innerHTML = getSquareRectangle(
-      pervayaStoronaPriamougolnika,
-      drugayaStoronaPriamougolnika
-    );
-  }
+  checkParams(
+    getSquareRectangle,
+    ploschadPriamougolnika,
+    pervayaStoronaPriamougolnika,
+    drugayaStoronaPriamougolnika
+  );
 }
 
 function showResultInDomParalelograma() {
@@ -50,15 +42,12 @@ function showResultInDomParalelograma() {
     '#ploschadParalelograma'
   );
 
-  if (dlinaStoronyParalelograma < 0 || dlinaVisotyParalelograma < 0) {
-    console.error('Введите положительное число');
-    return;
-  } else {
-    ploschadParalelograma.innerHTML = getSquareParalelograma(
-      dlinaStoronyParalelograma,
-      dlinaVisotyParalelograma
-    );
-  }
+  checkParams(
+    getSquareParalelograma,
+    ploschadParalelograma,
+    dlinaStoronyParalelograma,
+    dlinaVisotyParalelograma
+  );
 }
 
 function showResultInDomRomba() {
@@ -68,13 +57,19 @@ function showResultInDomRomba() {
 
   const ploschadRomba = document.querySelector('#ploschadRomba');
 
-  if (dlinaStoronyRomba < 0 || dlinaVisotyRomba < 0) {
+  checkParams(
+    getSquareRomb,
+    ploschadRomba,
+    dlinaStoronyRomba,
+    dlinaVisotyRomba
+  );
+}
+
+function checkParams(fn, dom, param1, param2) {
+  if (param1 < 0) {
     console.error('Введите положительное число');
     return;
   } else {
-    ploschadRomba.innerHTML = getSquareRomb(
-      dlinaStoronyRomba,
-      dlinaVisotyRomba
-    );
+    dom.innerHTML = fn(param1, param2);
   }
 }
