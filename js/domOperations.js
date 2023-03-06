@@ -5,7 +5,12 @@ function showResultInDomKvadrat() {
 
   const ploschadKvadrata = document.querySelector('#ploschadKvadrata');
 
-  ploschadKvadrata.innerHTML = getSquareArea(dlinaStoroniKvadrata);
+  if (dlinaStoroniKvadrata < 0) {
+    console.error('Введите положительное число');
+    return;
+  } else {
+    ploschadKvadrata.innerHTML = getSquareArea(dlinaStoroniKvadrata);
+  }
 }
 
 function showResultInDomPriamougolnika() {
@@ -21,10 +26,15 @@ function showResultInDomPriamougolnika() {
     '#ploschadPriamougolnika'
   );
 
-  ploschadPriamougolnika.innerHTML = getSquareRectangle(
-    pervayaStoronaPriamougolnika,
-    drugayaStoronaPriamougolnika
-  );
+  if (pervayaStoronaPriamougolnika < 0 || drugayaStoronaPriamougolnika < 0) {
+    console.error('Введите положительное число');
+    return;
+  } else {
+    ploschadPriamougolnika.innerHTML = getSquareRectangle(
+      pervayaStoronaPriamougolnika,
+      drugayaStoronaPriamougolnika
+    );
+  }
 }
 
 function showResultInDomParalelograma() {
@@ -40,10 +50,15 @@ function showResultInDomParalelograma() {
     '#ploschadParalelograma'
   );
 
-  ploschadParalelograma.innerHTML = getSquareParalelograma(
-    dlinaStoronyParalelograma,
-    dlinaVisotyParalelograma
-  );
+  if (dlinaStoronyParalelograma < 0 || dlinaVisotyParalelograma < 0) {
+    console.error('Введите положительное число');
+    return;
+  } else {
+    ploschadParalelograma.innerHTML = getSquareParalelograma(
+      dlinaStoronyParalelograma,
+      dlinaVisotyParalelograma
+    );
+  }
 }
 
 function showResultInDomRomba() {
@@ -53,5 +68,13 @@ function showResultInDomRomba() {
 
   const ploschadRomba = document.querySelector('#ploschadRomba');
 
-  ploschadRomba.innerHTML = getSquareRomb(dlinaStoronyRomba, dlinaVisotyRomba);
+  if (dlinaStoronyRomba < 0 || dlinaVisotyRomba < 0) {
+    console.error('Введите положительное число');
+    return;
+  } else {
+    ploschadRomba.innerHTML = getSquareRomb(
+      dlinaStoronyRomba,
+      dlinaVisotyRomba
+    );
+  }
 }
